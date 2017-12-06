@@ -54,4 +54,12 @@ Enumeration.prototype.every = function(array, callback){
   return true;
 }
 
+Enumeration.prototype.reduce = function(array, callback) {
+  var total = 0;
+  for (let item of array){
+  total = callback(total, item) 
+  }
+  return total;
+}
+
 module.exports = Enumeration;
