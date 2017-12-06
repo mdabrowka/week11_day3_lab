@@ -11,4 +11,14 @@ Enumeration.prototype.find = function(array, callback) {
   }
 }
 
+Enumeration.prototype.map = function(array, callback) {
+  var doubleArray = [];
+  for(let item of array) {
+    var doubleItem = item * 2;
+    doubleArray.push(doubleItem);
+  }
+  return doubleArray;
+}
+
+
 module.exports = Enumeration;
