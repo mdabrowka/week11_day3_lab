@@ -14,10 +14,21 @@ Enumeration.prototype.find = function(array, callback) {
 Enumeration.prototype.map = function(array, callback) {
   var doubleArray = [];
   for(let item of array) {
-    var doubleItem = item * 2;
+    var doubleItem = callback(item);
     doubleArray.push(doubleItem);
   }
   return doubleArray;
+}
+
+Enumeration.prototype.filter = function(array, callback){
+  var returnArray = [];
+  for(let item of array) {
+    var newItem = callback(item);
+    if (newItem === true){
+      returnArray.push(item);
+    }
+  }
+  return returnArray;
 }
 
 
