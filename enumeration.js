@@ -32,20 +32,26 @@ Enumeration.prototype.filter = function(array, callback){
 }
 
 Enumeration.prototype.some = function(array, callback) {
-  moreThanNumber = 0;
+  // moreThanNumber = 0;
   // moreThanOneHundred = 0;
   for (let item of array) {
     if (callback(item)){
-      moreThanNumber++;
+      return true;
     // }
     // if (item > 100){
     //   moreThanOneHundred++;
      }
   }
-  if (moreThanNumber > 2){
-    return true;
+  return false;
+}
+
+Enumeration.prototype.every = function(array, callback){
+  for( let item of array){
+    if(callback(item) == false ){
+      return false;
+    }
   }
-  else return false;
+  return true;
 }
 
 module.exports = Enumeration;
